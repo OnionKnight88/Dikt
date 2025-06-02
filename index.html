@@ -2,22 +2,20 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <title>Diktside</title>
+  <title>Diktmaskin</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 id="tittel"></h1>
-  <pre id="dikt"></pre>
-  <button onclick="lastNyttDikt()">Vis nytt dikt</button>
+  <nav>
+    <a href="alle-dikt.html">Alle Dikt</a>
+    <a href="#">Verk</a>
+  </nav>
 
-  <script>
-    async function lastNyttDikt() {
-      const res = await fetch('/api/tilfeldig');
-      const data = await res.json();
-      document.getElementById('tittel').textContent = data.tittel;
-      document.getElementById('dikt').textContent = data.innhold;
-    }
-
-    lastNyttDikt();
-  </script>
+  <main>
+    <h1>Tilfeldig Dikt</h1>
+    <pre id="dikt-innhold">Laster dikt...</pre>
+    <button onclick="lastTilfeldigDikt()">Nytt dikt</button>
+  </main>
 </body>
 </html>

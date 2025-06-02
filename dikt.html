@@ -2,22 +2,21 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8" />
-  <title>Dikt</title>
+  <title>Alle Dikt</title>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1 id="tittel"></h1>
-  <pre id="dikt"></pre>
+  <nav>
+    <a href="index.html">Tilfeldig Dikt</a>
+    <a href="#">Verk</a>
+  </nav>
 
-  <script>
-    const params = new URLSearchParams(location.search);
-    const tittel = params.get('tittel');
-
-    fetch(`/api/dikt/${tittel}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('tittel').textContent = data.tittel;
-        document.getElementById('dikt').textContent = data.innhold;
-      });
-  </script>
+  <main>
+    <h1>Alle Dikt</h1>
+    <ul id="dikt-liste">
+      <!-- Fylles av script -->
+    </ul>
+    <pre id="dikt-innhold"></pre>
+  </main>
 </body>
 </html>
