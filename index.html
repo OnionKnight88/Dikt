@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diktside</title>
+</head>
+<body>
+  <h1 id="tittel"></h1>
+  <pre id="dikt"></pre>
+  <button onclick="lastNyttDikt()">Vis nytt dikt</button>
+
+  <script>
+    async function lastNyttDikt() {
+      const res = await fetch('/api/tilfeldig');
+      const data = await res.json();
+      document.getElementById('tittel').textContent = data.tittel;
+      document.getElementById('dikt').textContent = data.innhold;
+    }
+
+    lastNyttDikt();
+  </script>
+</body>
+</html>

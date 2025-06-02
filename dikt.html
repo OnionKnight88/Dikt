@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dikt</title>
+</head>
+<body>
+  <h1 id="tittel"></h1>
+  <pre id="dikt"></pre>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const tittel = params.get('tittel');
+
+    fetch(`/api/dikt/${tittel}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('tittel').textContent = data.tittel;
+        document.getElementById('dikt').textContent = data.innhold;
+      });
+  </script>
+</body>
+</html>
